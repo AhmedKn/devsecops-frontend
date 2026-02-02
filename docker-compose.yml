@@ -6,7 +6,7 @@ services:
     ports:
       - "${PORT_HOST}:80"
     volumes:
-      - frontend_html:/usr/share/nginx/html
+      - nginx_logs:/var/log/nginx
 
 volumes:
-  frontend_html:
+  nginx_logs:
