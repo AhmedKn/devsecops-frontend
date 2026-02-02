@@ -1,0 +1,12 @@
+services:
+  frontend:
+    image: ${IMAGE_FULL}
+    container_name: ${DEPLOY_CONTAINER}
+    restart: unless-stopped
+    ports:
+      - "${PORT_HOST}:80"
+    volumes:
+      - frontend_html:/usr/share/nginx/html
+
+volumes:
+  frontend_html:
