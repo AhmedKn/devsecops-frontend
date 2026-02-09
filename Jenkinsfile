@@ -6,29 +6,24 @@ pipeline {
   }
 
   environment {
-    // Git
-    REPO_URL    = 'https://github.com/AhmedKn/devsecops-frontend.git'  // <-- change
+    REPO_URL    = 'https://github.com/AhmedKn/devsecops-frontend.git'
     BRANCH      = 'master'
 
-    // Sonar
     SONAR_PROJECT_KEY  = 'frontend-devsecops'
     SONAR_PROJECT_NAME = 'frontend-devsecops'
 
-    // DockerHub
     DOCKERHUB_USER = 'i2xmortal'
     IMAGE_NAME  = 'frontend-devsecops'
-    IMAGE_TAG   = 'prod'                         // or use ${BUILD_NUMBER}
+    IMAGE_TAG   = 'prod'                       
     IMAGE_FULL  = "${DOCKERHUB_USER}/${IMAGE_NAME}:${IMAGE_TAG}"
 
-    // Deploy
     DEPLOY_CONTAINER = 'frontend'
-    PORT_HOST   = '8088'                          // host (matches your vagrant forwarding host)
-    PORT_APP    = '80'                            // container port for nginx
-    HEALTH_URL  = "http://localhost:8088"         // adjust if you want a specific route
+    PORT_HOST   = '8088'                          
+    PORT_APP    = '80'                           
+    HEALTH_URL  = "http://localhost:8088"        
 
-    // Nexus (RAW hosted)
     NEXUS_URL  = 'http://nexus:8081'
-    NEXUS_REPO = 'frontend-devsecops'             // raw hosted repo name you will create
+    NEXUS_REPO = 'frontend-devsecops'             
   }
 
   stages {
