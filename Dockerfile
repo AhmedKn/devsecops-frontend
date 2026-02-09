@@ -9,10 +9,8 @@ RUN npm run build
 
 FROM nginx:alpine
 
-# Copy build output to temp
 COPY --from=build /app/dist /tmp/dist
 
-# Remove default nginx html and copy the folder that contains index.html
 RUN set -e; \
   rm -rf /usr/share/nginx/html/*; \
   if [ -f /tmp/dist/index.html ]; then \
